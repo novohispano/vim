@@ -3,7 +3,21 @@ execute pathogen#infect()
 set noswapfile
 " ********** Whitespace **********
 
-:set nowrap
+" Switch wrap off for everything
+set nowrap
+ 
+if has("autocmd")
+ 
+  " This is probably in your .vimrc already. No need to duplicate!
+  filetype plugin indent on
+ 
+  " Set File type to 'text' for files ending in .txt
+  autocmd BufNewFile,BufRead *.txt setfiletype text
+ 
+  " Enable soft-wrapping for text files
+  autocmd FileType text,markdown,md setlocal wrap linebreak nolist
+  
+endif
 
 " convert tabs to spaces
 :set expandtab
@@ -38,7 +52,7 @@ set noswapfile
 :set guioptions-=r  "remove right-hand scroll bar
 
 :set guifont=Inconsolata:h18
-colorscheme molokai
+colorscheme hybrid
 
 " ********* Ack (Silver Searcher)************
 :map <Leader>f :Ag<space>
