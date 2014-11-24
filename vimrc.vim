@@ -1,7 +1,22 @@
 execute pathogen#infect()
 
 set noswapfile
-" ********** Whitespace **********
+
+" ********** Tree **********
+
+" Shows hidden files
+
+let NERDTreeShowHidden=1
+
+" Open a NERDTree automatically when vim starts up
+
+autocmd vimenter * NERDTree
+
+" Close vim if the only window left open is a NERDTree
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" ********** Softwrap **********
 
 " Switch wrap off for everything
 set nowrap
@@ -18,6 +33,8 @@ if has("autocmd")
   autocmd FileType text,markdown,md setlocal wrap linebreak nolist
   
 endif
+
+" ********** Whitespace **********
 
 " convert tabs to spaces
 :set expandtab
@@ -42,6 +59,7 @@ endif
 :map <Leader>e :Explore<cr>
 :map <Leader>v :vsplit<cr>
 :map <Leader>s :split<cr>
+:map <Leader>\ :NERDTreeToggle<cr>
 
 " make C-c act like esc for stuff like :normal I
 :inoremap <C-c> <esc>
