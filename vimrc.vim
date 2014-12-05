@@ -46,11 +46,8 @@ endif
 " Detect file type for indentation below
 :filetype indent on
 
-" Use 4 space indentation on all files
-:autocmd FileType * set ai sw=4 sts=4 et
-
-" Use 2 space indentation on Ruby and YAML files
-:autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+" Use 2 space indentation on all files
+:autocmd FileType * set ai sw=2 sts=2 et
 
 " ********** Key Mapping **********
 
