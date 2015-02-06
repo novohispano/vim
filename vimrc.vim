@@ -58,6 +58,11 @@ endif
 :map <Leader>s :split<cr>
 :map <Leader>\ :NERDTreeToggle<cr>
 
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " make C-c act like esc for stuff like :normal I
 :inoremap <C-c> <esc>
 
